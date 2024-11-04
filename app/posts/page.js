@@ -2,7 +2,7 @@
 
 const Posts = async () => {
   const result = await fetch("https://jsonplaceholder.typicode.com/todos/1", {
-    cache: "force-cache",
+    cache: "no-store",
   })
     .then((response) => response.json())
     .then((json) => console.log(json));
