@@ -7,6 +7,7 @@ export default function Home() {
       <h1>hello</h1>
       <p>how are you?</p>
       <Link href={"/posts"}>go to me</Link>
+      <p>hellow</p>
     </div>
   );
 }
