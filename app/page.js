@@ -1,13 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 export default function Home() {
   return (
-    <div className="">
-      <h1>hello</h1>
-      <p>how are you?</p>
-      <Link href={"/posts"}>go to me</Link>
-      <p>hellow</p>
-    </div>
+    <Provider store={store}>
+      <div className="">
+        <Link href={"/posts"}>go to posts</Link>
+      </div>
+    </Provider>
   );
 }

@@ -1,20 +1,36 @@
-// "use client";
+import React, { Suspense } from "react";
+import Card from "../components/card/Card";
 
-const Posts = async () => {
-  const result = await fetch("https://jsonplaceholder.typicode.com/todos/1", {
-    // cache: "force-cache",
+const page = async () => {
+  const response = await fetch("https://fakestoreapi.com/products", {
+    cache: "force-cache",
     next: {
       revalidate: 2,
     },
-  })
-    .then((response) => response.json())
-    .then((json) => console.log(json));
-  console.log(result);
+  });
+  const products = await response.json();
   return (
-    <div>
-      <h1>{result}</h1>
-    </div>
+    <Suspense
+      fallback={
+        <div className="bg-transparent border-l border-r border-t animate-spin h-10 w-10 m-10 rounded-full"></div>
+      }
+    >
+      <div className="grid grid-cols-4 gap-5 p-3">
+        {products.map((e) => {
+          return (
+            <Card
+              id={e.id}
+              title={e.title}
+              image={e.image}
+              description={e.description}
+              rating={e.rating}
+              link={""}
+            />
+          );
+        })}
+      </div>
+    </Suspense>
   );
 };
 
-export default Posts;
+export default page;
