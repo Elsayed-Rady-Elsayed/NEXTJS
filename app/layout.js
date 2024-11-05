@@ -1,6 +1,8 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import NavBar from "./components/navBar.js/NavBar";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,13 +22,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <NavBar />
-        {children}
-      </body>
-    </html>
+    <Provider store={store}>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <NavBar />
+          {children}
+        </body>
+      </html>
+    </Provider>
   );
 }

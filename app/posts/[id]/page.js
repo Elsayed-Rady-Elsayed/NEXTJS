@@ -1,7 +1,6 @@
-"use client";
+import CartButton from "@/app/components/CartButton";
 import React, { Suspense } from "react";
 import { AiFillStar } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
 
 const Page = async (props) => {
   const id = props.params.id;
@@ -15,8 +14,7 @@ const Page = async (props) => {
   for (let i = 0; i < 5; i++) {
     i <= parseInt(data.rating.rate) ? stars.push(0) : stars.push(1);
   }
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
+
   return (
     <div className="">
       <h1>your product is:</h1>
@@ -46,14 +44,7 @@ const Page = async (props) => {
               </div>
               <p>({data.rating.count})</p>
             </div>
-            <button
-              className="w-full bg-black p-2 text-white rounded"
-              onClick={() => {
-                dispatch(increment());
-              }}
-            >
-              add to cart {count}
-            </button>
+            <CartButton id={3} />
           </div>
         </div>
       </Suspense>
