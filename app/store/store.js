@@ -9,8 +9,11 @@ const counterSlice = createSlice({
     addToCart: (state, action) => {
       state.cart.push(action.payload.item);
     },
-    removeFromCart: (state, initialState) => {
-      state.value -= 1;
+    removeFromCart: (state, action) => {
+      const index = state.cart.indexOf(action.payload.item);
+      console.log(index);
+
+      state.cart.pop(index);
     },
   },
 });

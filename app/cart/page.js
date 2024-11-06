@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { removeFromCart } from "../store/store";
 
 const Page = () => {
   const cart = useSelector((state) => state.cart.cart);
@@ -20,7 +21,7 @@ const Page = () => {
             </p>
             <button
               onClick={() => {
-                dispatch(removeFromCart(data));
+                dispatch(removeFromCart({ item: data }));
               }}
               className="bg-red-400 text-white p-2 rounded-md"
             >
