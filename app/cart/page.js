@@ -19,7 +19,9 @@ const Page = () => {
               {data.description}
             </p>
             <button
-              onClick={() => {}}
+              onClick={() => {
+                dispatch(removeFromCart(data));
+              }}
               className="bg-red-400 text-white p-2 rounded-md"
             >
               remove

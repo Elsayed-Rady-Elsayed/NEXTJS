@@ -9,13 +9,13 @@ const counterSlice = createSlice({
     addToCart: (state, action) => {
       state.cart.push(action.payload.item);
     },
-    decremented: (state, initialState) => {
+    removeFromCart: (state, initialState) => {
       state.value -= 1;
     },
   },
 });
 
-export const { addToCart, decremented } = counterSlice.actions;
+export const { addToCart, removeFromCart } = counterSlice.actions;
 
 const store = configureStore({
   reducer: {
