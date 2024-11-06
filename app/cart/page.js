@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Page = () => {
   const cart = useSelector((state) => state.cart.cart);
+  const dispatch = useDispatch();
   const items = cart.map((data) => {
     return (
       <div className="">
@@ -17,7 +18,10 @@ const Page = () => {
             <p className="text-gray-600 text-base mt-2 line-clamp-2">
               {data.description}
             </p>
-            <button className="bg-red-400 text-white p-2 rounded-md">
+            <button
+              onClick={() => {}}
+              className="bg-red-400 text-white p-2 rounded-md"
+            >
               remove
             </button>
           </div>
