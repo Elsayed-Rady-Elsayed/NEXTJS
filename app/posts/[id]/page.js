@@ -44,7 +44,7 @@ const Page = async (props) => {
               </div>
               <p>({data.rating.count})</p>
             </div>
-            <CartButton id={3} />
+            <CartButton item={data} />
           </div>
         </div>
       </Suspense>

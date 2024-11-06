@@ -1,18 +1,19 @@
 "use client";
 import { useDispatch, useSelector } from "react-redux";
-
-const CartButton = ({ id }) => {
-  const count = useSelector((state) => state.counter.value);
+import { addToCart } from "../store/store";
+const CartButton = ({ item }) => {
+  const count = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
+  console.log(count);
 
   return (
     <button
       className="w-full bg-black p-2 text-white rounded"
       onClick={() => {
-        dispatch(increment());
+        dispatch(addToCart({ item: item }));
       }}
     >
-      Add to cart {count}
+      Add to cart
     </button>
   );
 };
