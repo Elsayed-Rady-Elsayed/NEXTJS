@@ -2,9 +2,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../store/store";
 const CartButton = ({ item }) => {
-  const count = useSelector((state) => state.cart.cart);
+  const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
-  console.log(count);
+  console.log(cart);
 
   return (
     <button
